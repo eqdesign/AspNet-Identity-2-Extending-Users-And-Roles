@@ -37,7 +37,7 @@ namespace LoanModule.Models
         public string Mobile { get; set; }
         public string Fax { get; set; }
         [Display(Name = "NMLS #")]
-        public int NMLS { get; set; }
+        public System.Nullable<int> NMLS { get; set; }
         public string Facebook { get; set; }
         public string LinkedIn { get; set; }
         [Required]
