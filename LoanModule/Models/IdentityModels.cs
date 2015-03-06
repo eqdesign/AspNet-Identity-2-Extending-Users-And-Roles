@@ -71,6 +71,7 @@ namespace LoanModule.Models
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
+           // : base("masterEntities", throwIfV1Schema: false)
         {
         }
 
