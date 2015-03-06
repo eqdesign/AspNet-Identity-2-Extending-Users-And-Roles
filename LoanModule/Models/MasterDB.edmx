@@ -1,0 +1,1209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MasterDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Brokers">
+          <Key>
+            <PropertyRef Name="BrokerID" />
+          </Key>
+          <Property Name="BrokerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrokerFirst" Type="varchar" MaxLength="35" />
+          <Property Name="BrokerLast" Type="varchar" MaxLength="50" />
+          <Property Name="BrokerPhone" Type="varchar" MaxLength="15" />
+          <Property Name="BrokerEmail" Type="varchar" MaxLength="50" />
+          <Property Name="ReferredBy" Type="varchar" MaxLength="20" />
+          <Property Name="County" Type="varchar" MaxLength="20" />
+          <Property Name="OptIn" Type="bit" />
+          <Property Name="Address" Type="varchar" MaxLength="75" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="15" />
+          <Property Name="Zip" Type="varchar" MaxLength="10" />
+          <Property Name="Position" Type="varchar" MaxLength="30" />
+          <Property Name="NMLSCertified" Type="varchar" MaxLength="5" />
+          <Property Name="NMLSNumber" Type="varchar" MaxLength="15" />
+          <Property Name="StatesLicensed" Type="varchar" MaxLength="5" />
+          <Property Name="StateLicenses" Type="varchar" MaxLength="20" />
+          <Property Name="RealtorsRef" Type="varchar" MaxLength="5" />
+          <Property Name="Notes" Type="varchar" MaxLength="8000" />
+          <Property Name="LeadDate" Type="datetime2" Precision="7" />
+          <Property Name="FormName" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="CountyList">
+          <Key>
+            <PropertyRef Name="CountyID" />
+          </Key>
+          <Property Name="CountyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="County" Type="varchar" MaxLength="25" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmpID" />
+          </Key>
+          <Property Name="EmpID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpFirst" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmpLast" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="EmpEmail" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="EmpTitle" Type="varchar" MaxLength="75" />
+          <Property Name="EmpNMLS" Type="int" />
+          <Property Name="EmpPhone" Type="varchar" MaxLength="20" />
+          <Property Name="EmpMobile" Type="varchar" MaxLength="20" />
+          <Property Name="EmpFax" Type="varchar" MaxLength="20" />
+          <Property Name="EmpLinkedIn" Type="varbinary" MaxLength="200" />
+          <Property Name="EmpFacebook" Type="varchar" MaxLength="200" />
+          <Property Name="EmpPhoto" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="LeadNotes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoteText" Type="nvarchar(max)" />
+          <Property Name="NoteBy" Type="nvarchar(max)" />
+          <Property Name="NoteDate" Type="datetime" Nullable="false" />
+          <Property Name="NewLeadId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoanTypeList">
+          <Key>
+            <PropertyRef Name="LoanTypeID" />
+          </Key>
+          <Property Name="LoanTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoanType" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MWFUsers">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="128" />
+          <Property Name="UserFirst" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="UserLast" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="UserFullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserNMLS" Type="int" />
+          <Property Name="UserPhone" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="UserMobile" Type="nvarchar" MaxLength="25" />
+          <Property Name="UserFax" Type="nvarchar" MaxLength="25" />
+          <Property Name="UserLinkedIn" Type="nvarchar" MaxLength="256" />
+          <Property Name="UserFacebook" Type="nvarchar" MaxLength="256" />
+          <Property Name="UserPhoto" Type="nvarchar" MaxLength="256" />
+          <Property Name="UserBranch" Type="nvarchar" MaxLength="75" />
+          <Property Name="UserEmail" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NewLeads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LoanType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="County" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ReferredBy" Type="nvarchar(max)" />
+          <Property Name="LoanAgent" Type="nvarchar(max)" />
+          <Property Name="LeadDate" Type="datetime" Nullable="false" />
+          <Property Name="OptIn" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notes">
+          <Key>
+            <PropertyRef Name="NoteID" />
+          </Key>
+          <Property Name="NoteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LeadID" Type="int" Nullable="false" />
+          <Property Name="NoteText" Type="varchar(max)" />
+          <Property Name="NoteBy" Type="varchar" MaxLength="50" />
+          <Property Name="NoteDate" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Realtors">
+          <Key>
+            <PropertyRef Name="RealtorID" />
+          </Key>
+          <Property Name="RealtorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RealtorFirst" Type="varchar" MaxLength="35" />
+          <Property Name="RealtorLast" Type="varchar" MaxLength="50" />
+          <Property Name="RealtorPhone" Type="varchar" MaxLength="15" />
+          <Property Name="RealtorEmail" Type="varchar" MaxLength="75" />
+          <Property Name="ReferredBy" Type="varchar" MaxLength="20" />
+          <Property Name="County" Type="varchar" MaxLength="20" />
+          <Property Name="LoanAgent" Type="varchar" MaxLength="35" />
+          <Property Name="OptIn" Type="bit" />
+          <Property Name="Company" Type="varchar" MaxLength="35" />
+          <Property Name="Website" Type="varchar" MaxLength="35" />
+          <Property Name="Address" Type="varchar" MaxLength="75" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="15" />
+          <Property Name="Zip" Type="varchar" MaxLength="10" />
+          <Property Name="WorkPhone" Type="varchar" MaxLength="15" />
+          <Property Name="Fax" Type="varchar" MaxLength="15" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="20" />
+          <Property Name="ManageRealtors" Type="varchar" MaxLength="5" />
+          <Property Name="NoRealtors" Type="varchar" MaxLength="3" />
+          <Property Name="Farm1" Type="varchar" MaxLength="10" />
+          <Property Name="Farm2" Type="varchar" MaxLength="10" />
+          <Property Name="Farm3" Type="varchar" MaxLength="10" />
+          <Property Name="Farm4" Type="varchar" MaxLength="10" />
+          <Property Name="Farm5" Type="varchar" MaxLength="10" />
+          <Property Name="LinkedIn" Type="varchar" MaxLength="75" />
+          <Property Name="Facebook" Type="varchar" MaxLength="75" />
+          <Property Name="BRELicense" Type="varchar" MaxLength="20" />
+          <Property Name="Notes" Type="varchar" MaxLength="8000" />
+          <Property Name="LeadDate" Type="datetime2" Precision="7" />
+          <Property Name="FormName" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="ReferFriends">
+          <Key>
+            <PropertyRef Name="ReferID" />
+          </Key>
+          <Property Name="ReferID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="35" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Company" Type="varchar" MaxLength="75" />
+          <Property Name="WhoIs" Type="varchar" MaxLength="35" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" />
+          <Property Name="PrequalType" Type="varchar" MaxLength="35" />
+          <Property Name="LoanAgent" Type="varchar" MaxLength="35" />
+          <Property Name="ReferFirst" Type="varchar" MaxLength="35" />
+          <Property Name="ReferLast" Type="varchar" MaxLength="50" />
+          <Property Name="ReferEmail" Type="varchar" MaxLength="35" />
+          <Property Name="ReferPhone" Type="varchar" MaxLength="15" />
+          <Property Name="LeadDate" Type="datetime2" Precision="7" />
+          <Property Name="OptIn" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="ReferralSources">
+          <Key>
+            <PropertyRef Name="RefID" />
+          </Key>
+          <Property Name="RefID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RefType" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="WebLeads">
+          <Key>
+            <PropertyRef Name="LeadID" />
+          </Key>
+          <Property Name="LeadID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="128" />
+          <Property Name="FirstName" Type="varchar" MaxLength="35" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" />
+          <Property Name="Email" Type="varchar" MaxLength="75" />
+          <Property Name="Veteran" Type="varchar" MaxLength="3" />
+          <Property Name="PublicEmployee" Type="varchar" MaxLength="50" />
+          <Property Name="Credit" Type="varchar" MaxLength="10" />
+          <Property Name="County" Type="varchar" MaxLength="20" />
+          <Property Name="PropAddress" Type="varchar" MaxLength="150" />
+          <Property Name="PropCity" Type="varchar" MaxLength="50" />
+          <Property Name="PropState" Type="varchar" MaxLength="2" />
+          <Property Name="Zip" Type="varchar" MaxLength="12" />
+          <Property Name="WhoIs" Type="varchar" MaxLength="75" />
+          <Property Name="Want" Type="varchar" MaxLength="75" />
+          <Property Name="LoanType" Type="varchar" MaxLength="50" />
+          <Property Name="LoanPurpose" Type="varchar" MaxLength="30" />
+          <Property Name="RefiPurpose" Type="varchar" MaxLength="50" />
+          <Property Name="PropType" Type="nchar" MaxLength="10" />
+          <Property Name="PropUse" Type="nchar" MaxLength="10" />
+          <Property Name="PropValue" Type="varchar" MaxLength="25" />
+          <Property Name="FoundHome" Type="varchar" MaxLength="5" />
+          <Property Name="EstPurchPrice" Type="varchar" MaxLength="10" />
+          <Property Name="WhenPurch" Type="varchar" MaxLength="25" />
+          <Property Name="DownPayment" Type="varchar" MaxLength="10" />
+          <Property Name="FirstHome" Type="varchar" MaxLength="5" />
+          <Property Name="FirstTDOrigBal" Type="varchar" MaxLength="15" />
+          <Property Name="FirstTDBalance" Type="varchar" MaxLength="25" />
+          <Property Name="FirstTDRate" Type="varchar" MaxLength="15" />
+          <Property Name="FirstTDTerm" Type="varchar" MaxLength="20" />
+          <Property Name="FirstTDTransMo" Type="varchar" MaxLength="2" />
+          <Property Name="FirstTDTransYr" Type="varchar" MaxLength="4" />
+          <Property Name="SecTD" Type="varchar" MaxLength="5" />
+          <Property Name="SecTDBalance" Type="varchar" MaxLength="25" />
+          <Property Name="SecTDRate" Type="varchar" MaxLength="25" />
+          <Property Name="CashOut" Type="varchar" MaxLength="10" />
+          <Property Name="LateTDPayments" Type="varchar" MaxLength="3" />
+          <Property Name="Foreclosure" Type="varchar" MaxLength="3" />
+          <Property Name="BK" Type="varchar" MaxLength="3" />
+          <Property Name="FHALoan" Type="varchar" MaxLength="3" />
+          <Property Name="AnnualIncome" Type="varchar" MaxLength="25" />
+          <Property Name="Employment" Type="varchar" MaxLength="20" />
+          <Property Name="MoDebt" Type="varchar" MaxLength="20" />
+          <Property Name="LoanAgent" Type="nvarchar" MaxLength="256" />
+          <Property Name="ReferredBy" Type="varchar" MaxLength="20" />
+          <Property Name="OptIn" Type="bit" Nullable="false" />
+          <Property Name="Comments" Type="varchar" MaxLength="8000" />
+          <Property Name="LeadDate" Type="datetime2" Precision="7" />
+          <Property Name="DispDate" Type="datetime2" Precision="7" />
+          <Property Name="FHACalcDate" Type="datetime2" Precision="7" />
+          <Property Name="FormName" Type="varchar" MaxLength="30" />
+          <Property Name="LeadStatus" Type="varchar" MaxLength="35" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LeadNotes_dbo_NewLeads_NewLeadId">
+          <End Role="NewLeads" Type="Self.NewLeads" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LeadNotes" Type="Self.LeadNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NewLeads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LeadNotes">
+              <PropertyRef Name="NewLeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MWFUsers_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="MWFUsers" Type="Self.MWFUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MWFUsers">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notes_WebLead">
+          <End Role="WebLeads" Type="Self.WebLeads" Multiplicity="1" />
+          <End Role="Notes" Type="Self.Notes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WebLeads">
+              <PropertyRef Name="LeadID" />
+            </Principal>
+            <Dependent Role="Notes">
+              <PropertyRef Name="LeadID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MasterDBModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brokers" EntityType="Self.Brokers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountyList" EntityType="Self.CountyList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LeadNotes" EntityType="Self.LeadNotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoanTypeList" EntityType="Self.LoanTypeList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MWFUsers" EntityType="Self.MWFUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewLeads" EntityType="Self.NewLeads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notes" EntityType="Self.Notes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Realtors" EntityType="Self.Realtors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReferFriends" EntityType="Self.ReferFriends" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReferralSources" EntityType="Self.ReferralSources" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WebLeads" EntityType="Self.WebLeads" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LeadNotes_dbo_NewLeads_NewLeadId" Association="Self.FK_dbo_LeadNotes_dbo_NewLeads_NewLeadId">
+            <End Role="NewLeads" EntitySet="NewLeads" />
+            <End Role="LeadNotes" EntitySet="LeadNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MWFUsers_AspNetUsers" Association="Self.FK_MWFUsers_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="MWFUsers" EntitySet="MWFUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notes_WebLead" Association="Self.FK_Notes_WebLead">
+            <End Role="WebLeads" EntitySet="WebLeads" />
+            <End Role="Notes" EntitySet="Notes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MasterDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="MWFUsers" Relationship="Self.FK_MWFUsers_AspNetUsers" FromRole="AspNetUsers" ToRole="MWFUsers" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Broker">
+          <Key>
+            <PropertyRef Name="BrokerID" />
+          </Key>
+          <Property Name="BrokerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrokerFirst" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="BrokerLast" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BrokerPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="BrokerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReferredBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="County" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OptIn" Type="Boolean" />
+          <Property Name="Address" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NMLSCertified" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="NMLSNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="StatesLicensed" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="StateLicenses" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RealtorsRef" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="LeadDate" Type="DateTime" Precision="7" />
+          <Property Name="FormName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CountyList">
+          <Key>
+            <PropertyRef Name="CountyID" />
+          </Key>
+          <Property Name="CountyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="County" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmpID" />
+          </Key>
+          <Property Name="EmpID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpFirst" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmpLast" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmpEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmpTitle" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="EmpNMLS" Type="Int32" />
+          <Property Name="EmpPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EmpMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EmpFax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EmpLinkedIn" Type="Binary" MaxLength="200" FixedLength="false" />
+          <Property Name="EmpFacebook" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="EmpPhoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LeadNote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoteText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NewLeadId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="NewLead" Relationship="Self.FK_dbo_LeadNotes_dbo_NewLeads_NewLeadId" FromRole="LeadNotes" ToRole="NewLeads" />
+        </EntityType>
+        <EntityType Name="LoanTypeList">
+          <Key>
+            <PropertyRef Name="LoanTypeID" />
+          </Key>
+          <Property Name="LoanTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoanType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MWFUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserFirst" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserLast" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserFullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserNMLS" Type="Int32" />
+          <Property Name="UserPhone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserMobile" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="UserFax" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="UserLinkedIn" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UserFacebook" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UserPhoto" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UserBranch" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="UserEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_MWFUsers_AspNetUsers" FromRole="MWFUsers" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="NewLead">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoanType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="County" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReferredBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LoanAgent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LeadDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OptIn" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="LeadNotes" Relationship="Self.FK_dbo_LeadNotes_dbo_NewLeads_NewLeadId" FromRole="NewLeads" ToRole="LeadNotes" />
+        </EntityType>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="NoteID" />
+          </Key>
+          <Property Name="NoteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LeadID" Type="Int32" Nullable="false" />
+          <Property Name="NoteText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NoteBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NoteDate" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="WebLead" Relationship="Self.FK_Notes_WebLead" FromRole="Notes" ToRole="WebLeads" />
+        </EntityType>
+        <EntityType Name="Realtor">
+          <Key>
+            <PropertyRef Name="RealtorID" />
+          </Key>
+          <Property Name="RealtorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RealtorFirst" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="RealtorLast" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RealtorPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="RealtorEmail" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="ReferredBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="County" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LoanAgent" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="OptIn" Type="Boolean" />
+          <Property Name="Company" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Website" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="WorkPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ManageRealtors" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="NoRealtors" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Farm1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Farm2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Farm3" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Farm4" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Farm5" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LinkedIn" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="Facebook" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="BRELicense" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="LeadDate" Type="DateTime" Precision="7" />
+          <Property Name="FormName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ReferFriend">
+          <Key>
+            <PropertyRef Name="ReferID" />
+          </Key>
+          <Property Name="ReferID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Company" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="WhoIs" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PrequalType" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="LoanAgent" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ReferFirst" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ReferLast" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReferEmail" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ReferPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="LeadDate" Type="DateTime" Precision="7" />
+          <Property Name="OptIn" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ReferralSource">
+          <Key>
+            <PropertyRef Name="RefID" />
+          </Key>
+          <Property Name="RefID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RefType" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WebLead">
+          <Key>
+            <PropertyRef Name="LeadID" />
+          </Key>
+          <Property Name="LeadID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="Veteran" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="PublicEmployee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Credit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="County" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PropAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PropCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PropState" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="WhoIs" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="Want" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="LoanType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LoanPurpose" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RefiPurpose" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PropType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PropUse" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PropValue" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="FoundHome" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="EstPurchPrice" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="WhenPurch" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="DownPayment" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FirstHome" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FirstTDOrigBal" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="FirstTDBalance" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="FirstTDRate" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="FirstTDTerm" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FirstTDTransMo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="FirstTDTransYr" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="SecTD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="SecTDBalance" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="SecTDRate" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CashOut" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LateTDPayments" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Foreclosure" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="BK" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="FHALoan" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="AnnualIncome" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Employment" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MoDebt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LoanAgent" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ReferredBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OptIn" Type="Boolean" Nullable="false" />
+          <Property Name="Comments" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="LeadDate" Type="DateTime" Precision="7" />
+          <Property Name="DispDate" Type="DateTime" Precision="7" />
+          <Property Name="FHACalcDate" Type="DateTime" Precision="7" />
+          <Property Name="FormName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LeadStatus" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Notes" Relationship="Self.FK_Notes_WebLead" FromRole="WebLeads" ToRole="Notes" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MWFUsers_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="MWFUsers" Type="Self.MWFUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MWFUsers">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LeadNotes_dbo_NewLeads_NewLeadId">
+          <End Role="NewLeads" Type="Self.NewLead" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LeadNotes" Type="Self.LeadNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NewLeads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LeadNotes">
+              <PropertyRef Name="NewLeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notes_WebLead">
+          <End Role="WebLeads" Type="Self.WebLead" Multiplicity="1" />
+          <End Role="Notes" Type="Self.Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WebLeads">
+              <PropertyRef Name="LeadID" />
+            </Principal>
+            <Dependent Role="Notes">
+              <PropertyRef Name="LeadID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="masterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Brokers" EntityType="Self.Broker" />
+          <EntitySet Name="CountyLists" EntityType="Self.CountyList" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="LeadNotes" EntityType="Self.LeadNote" />
+          <EntitySet Name="LoanTypeLists" EntityType="Self.LoanTypeList" />
+          <EntitySet Name="MWFUsers" EntityType="Self.MWFUser" />
+          <EntitySet Name="NewLeads" EntityType="Self.NewLead" />
+          <EntitySet Name="Notes" EntityType="Self.Note" />
+          <EntitySet Name="Realtors" EntityType="Self.Realtor" />
+          <EntitySet Name="ReferFriends" EntityType="Self.ReferFriend" />
+          <EntitySet Name="ReferralSources" EntityType="Self.ReferralSource" />
+          <EntitySet Name="WebLeads" EntityType="Self.WebLead" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MWFUsers_AspNetUsers" Association="Self.FK_MWFUsers_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="MWFUsers" EntitySet="MWFUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LeadNotes_dbo_NewLeads_NewLeadId" Association="Self.FK_dbo_LeadNotes_dbo_NewLeads_NewLeadId">
+            <End Role="NewLeads" EntitySet="NewLeads" />
+            <End Role="LeadNotes" EntitySet="LeadNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notes_WebLead" Association="Self.FK_Notes_WebLead">
+            <End Role="WebLeads" EntitySet="WebLeads" />
+            <End Role="Notes" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MasterDBModelStoreContainer" CdmEntityContainer="masterEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="MasterDBModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="MasterDBModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="MasterDBModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="MasterDBModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="MasterDBModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brokers">
+            <EntityTypeMapping TypeName="MasterDBModel.Broker">
+              <MappingFragment StoreEntitySet="Brokers">
+                <ScalarProperty Name="BrokerID" ColumnName="BrokerID" />
+                <ScalarProperty Name="BrokerFirst" ColumnName="BrokerFirst" />
+                <ScalarProperty Name="BrokerLast" ColumnName="BrokerLast" />
+                <ScalarProperty Name="BrokerPhone" ColumnName="BrokerPhone" />
+                <ScalarProperty Name="BrokerEmail" ColumnName="BrokerEmail" />
+                <ScalarProperty Name="ReferredBy" ColumnName="ReferredBy" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="OptIn" ColumnName="OptIn" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="NMLSCertified" ColumnName="NMLSCertified" />
+                <ScalarProperty Name="NMLSNumber" ColumnName="NMLSNumber" />
+                <ScalarProperty Name="StatesLicensed" ColumnName="StatesLicensed" />
+                <ScalarProperty Name="StateLicenses" ColumnName="StateLicenses" />
+                <ScalarProperty Name="RealtorsRef" ColumnName="RealtorsRef" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="LeadDate" ColumnName="LeadDate" />
+                <ScalarProperty Name="FormName" ColumnName="FormName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountyLists">
+            <EntityTypeMapping TypeName="MasterDBModel.CountyList">
+              <MappingFragment StoreEntitySet="CountyList">
+                <ScalarProperty Name="CountyID" ColumnName="CountyID" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="MasterDBModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="EmpFirst" ColumnName="EmpFirst" />
+                <ScalarProperty Name="EmpLast" ColumnName="EmpLast" />
+                <ScalarProperty Name="EmpEmail" ColumnName="EmpEmail" />
+                <ScalarProperty Name="EmpTitle" ColumnName="EmpTitle" />
+                <ScalarProperty Name="EmpNMLS" ColumnName="EmpNMLS" />
+                <ScalarProperty Name="EmpPhone" ColumnName="EmpPhone" />
+                <ScalarProperty Name="EmpMobile" ColumnName="EmpMobile" />
+                <ScalarProperty Name="EmpFax" ColumnName="EmpFax" />
+                <ScalarProperty Name="EmpLinkedIn" ColumnName="EmpLinkedIn" />
+                <ScalarProperty Name="EmpFacebook" ColumnName="EmpFacebook" />
+                <ScalarProperty Name="EmpPhoto" ColumnName="EmpPhoto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LeadNotes">
+            <EntityTypeMapping TypeName="MasterDBModel.LeadNote">
+              <MappingFragment StoreEntitySet="LeadNotes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NoteText" ColumnName="NoteText" />
+                <ScalarProperty Name="NoteBy" ColumnName="NoteBy" />
+                <ScalarProperty Name="NoteDate" ColumnName="NoteDate" />
+                <ScalarProperty Name="NewLeadId" ColumnName="NewLeadId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoanTypeLists">
+            <EntityTypeMapping TypeName="MasterDBModel.LoanTypeList">
+              <MappingFragment StoreEntitySet="LoanTypeList">
+                <ScalarProperty Name="LoanTypeID" ColumnName="LoanTypeID" />
+                <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MWFUsers">
+            <EntityTypeMapping TypeName="MasterDBModel.MWFUser">
+              <MappingFragment StoreEntitySet="MWFUsers">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserFirst" ColumnName="UserFirst" />
+                <ScalarProperty Name="UserLast" ColumnName="UserLast" />
+                <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+                <ScalarProperty Name="UserTitle" ColumnName="UserTitle" />
+                <ScalarProperty Name="UserNMLS" ColumnName="UserNMLS" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="UserMobile" ColumnName="UserMobile" />
+                <ScalarProperty Name="UserFax" ColumnName="UserFax" />
+                <ScalarProperty Name="UserLinkedIn" ColumnName="UserLinkedIn" />
+                <ScalarProperty Name="UserFacebook" ColumnName="UserFacebook" />
+                <ScalarProperty Name="UserPhoto" ColumnName="UserPhoto" />
+                <ScalarProperty Name="UserBranch" ColumnName="UserBranch" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewLeads">
+            <EntityTypeMapping TypeName="MasterDBModel.NewLead">
+              <MappingFragment StoreEntitySet="NewLeads">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="ReferredBy" ColumnName="ReferredBy" />
+                <ScalarProperty Name="LoanAgent" ColumnName="LoanAgent" />
+                <ScalarProperty Name="LeadDate" ColumnName="LeadDate" />
+                <ScalarProperty Name="OptIn" ColumnName="OptIn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notes">
+            <EntityTypeMapping TypeName="MasterDBModel.Note">
+              <MappingFragment StoreEntitySet="Notes">
+                <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+                <ScalarProperty Name="LeadID" ColumnName="LeadID" />
+                <ScalarProperty Name="NoteText" ColumnName="NoteText" />
+                <ScalarProperty Name="NoteBy" ColumnName="NoteBy" />
+                <ScalarProperty Name="NoteDate" ColumnName="NoteDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Realtors">
+            <EntityTypeMapping TypeName="MasterDBModel.Realtor">
+              <MappingFragment StoreEntitySet="Realtors">
+                <ScalarProperty Name="RealtorID" ColumnName="RealtorID" />
+                <ScalarProperty Name="RealtorFirst" ColumnName="RealtorFirst" />
+                <ScalarProperty Name="RealtorLast" ColumnName="RealtorLast" />
+                <ScalarProperty Name="RealtorPhone" ColumnName="RealtorPhone" />
+                <ScalarProperty Name="RealtorEmail" ColumnName="RealtorEmail" />
+                <ScalarProperty Name="ReferredBy" ColumnName="ReferredBy" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="LoanAgent" ColumnName="LoanAgent" />
+                <ScalarProperty Name="OptIn" ColumnName="OptIn" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="ManageRealtors" ColumnName="ManageRealtors" />
+                <ScalarProperty Name="NoRealtors" ColumnName="NoRealtors" />
+                <ScalarProperty Name="Farm1" ColumnName="Farm1" />
+                <ScalarProperty Name="Farm2" ColumnName="Farm2" />
+                <ScalarProperty Name="Farm3" ColumnName="Farm3" />
+                <ScalarProperty Name="Farm4" ColumnName="Farm4" />
+                <ScalarProperty Name="Farm5" ColumnName="Farm5" />
+                <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="BRELicense" ColumnName="BRELicense" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="LeadDate" ColumnName="LeadDate" />
+                <ScalarProperty Name="FormName" ColumnName="FormName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReferFriends">
+            <EntityTypeMapping TypeName="MasterDBModel.ReferFriend">
+              <MappingFragment StoreEntitySet="ReferFriends">
+                <ScalarProperty Name="ReferID" ColumnName="ReferID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="WhoIs" ColumnName="WhoIs" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PrequalType" ColumnName="PrequalType" />
+                <ScalarProperty Name="LoanAgent" ColumnName="LoanAgent" />
+                <ScalarProperty Name="ReferFirst" ColumnName="ReferFirst" />
+                <ScalarProperty Name="ReferLast" ColumnName="ReferLast" />
+                <ScalarProperty Name="ReferEmail" ColumnName="ReferEmail" />
+                <ScalarProperty Name="ReferPhone" ColumnName="ReferPhone" />
+                <ScalarProperty Name="LeadDate" ColumnName="LeadDate" />
+                <ScalarProperty Name="OptIn" ColumnName="OptIn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReferralSources">
+            <EntityTypeMapping TypeName="MasterDBModel.ReferralSource">
+              <MappingFragment StoreEntitySet="ReferralSources">
+                <ScalarProperty Name="RefID" ColumnName="RefID" />
+                <ScalarProperty Name="RefType" ColumnName="RefType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WebLeads">
+            <EntityTypeMapping TypeName="MasterDBModel.WebLead">
+              <MappingFragment StoreEntitySet="WebLeads">
+                <ScalarProperty Name="LeadID" ColumnName="LeadID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Veteran" ColumnName="Veteran" />
+                <ScalarProperty Name="PublicEmployee" ColumnName="PublicEmployee" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="PropAddress" ColumnName="PropAddress" />
+                <ScalarProperty Name="PropCity" ColumnName="PropCity" />
+                <ScalarProperty Name="PropState" ColumnName="PropState" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="WhoIs" ColumnName="WhoIs" />
+                <ScalarProperty Name="Want" ColumnName="Want" />
+                <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+                <ScalarProperty Name="LoanPurpose" ColumnName="LoanPurpose" />
+                <ScalarProperty Name="RefiPurpose" ColumnName="RefiPurpose" />
+                <ScalarProperty Name="PropType" ColumnName="PropType" />
+                <ScalarProperty Name="PropUse" ColumnName="PropUse" />
+                <ScalarProperty Name="PropValue" ColumnName="PropValue" />
+                <ScalarProperty Name="FoundHome" ColumnName="FoundHome" />
+                <ScalarProperty Name="EstPurchPrice" ColumnName="EstPurchPrice" />
+                <ScalarProperty Name="WhenPurch" ColumnName="WhenPurch" />
+                <ScalarProperty Name="DownPayment" ColumnName="DownPayment" />
+                <ScalarProperty Name="FirstHome" ColumnName="FirstHome" />
+                <ScalarProperty Name="FirstTDOrigBal" ColumnName="FirstTDOrigBal" />
+                <ScalarProperty Name="FirstTDBalance" ColumnName="FirstTDBalance" />
+                <ScalarProperty Name="FirstTDRate" ColumnName="FirstTDRate" />
+                <ScalarProperty Name="FirstTDTerm" ColumnName="FirstTDTerm" />
+                <ScalarProperty Name="FirstTDTransMo" ColumnName="FirstTDTransMo" />
+                <ScalarProperty Name="FirstTDTransYr" ColumnName="FirstTDTransYr" />
+                <ScalarProperty Name="SecTD" ColumnName="SecTD" />
+                <ScalarProperty Name="SecTDBalance" ColumnName="SecTDBalance" />
+                <ScalarProperty Name="SecTDRate" ColumnName="SecTDRate" />
+                <ScalarProperty Name="CashOut" ColumnName="CashOut" />
+                <ScalarProperty Name="LateTDPayments" ColumnName="LateTDPayments" />
+                <ScalarProperty Name="Foreclosure" ColumnName="Foreclosure" />
+                <ScalarProperty Name="BK" ColumnName="BK" />
+                <ScalarProperty Name="FHALoan" ColumnName="FHALoan" />
+                <ScalarProperty Name="AnnualIncome" ColumnName="AnnualIncome" />
+                <ScalarProperty Name="Employment" ColumnName="Employment" />
+                <ScalarProperty Name="MoDebt" ColumnName="MoDebt" />
+                <ScalarProperty Name="LoanAgent" ColumnName="LoanAgent" />
+                <ScalarProperty Name="ReferredBy" ColumnName="ReferredBy" />
+                <ScalarProperty Name="OptIn" ColumnName="OptIn" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="LeadDate" ColumnName="LeadDate" />
+                <ScalarProperty Name="DispDate" ColumnName="DispDate" />
+                <ScalarProperty Name="FHACalcDate" ColumnName="FHACalcDate" />
+                <ScalarProperty Name="FormName" ColumnName="FormName" />
+                <ScalarProperty Name="LeadStatus" ColumnName="LeadStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="MasterDBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
