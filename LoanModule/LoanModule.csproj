@@ -116,7 +116,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Optimization">
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -151,23 +152,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <EntityDeploy Include="Models\MasterDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MasterDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\MasterDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MasterDB.edmx</DependentUpon>
-      <LastGenOutput>MasterDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\MasterDB.edmx.diagram">
-      <DependentUpon>MasterDB.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\MasterDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MasterDB.edmx</DependentUpon>
-      <LastGenOutput>MasterDB.cs</LastGenOutput>
-    </Content>
+    <None Include="Properties\PublishProfiles\MyMLOAssistant %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MyMLOAssistant.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -253,74 +239,8 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
-    <Compile Include="Models\AspNetRole.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserClaim.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserLogin.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Broker.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CountyList.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Employee.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\LeadNote.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LoanTypeList.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MasterDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MasterDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MasterDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MasterDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MasterDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MWFUser.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NewLead.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Note.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Realtor.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ReferFriend.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ReferralSource.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\WebLead.cs">
-      <DependentUpon>MasterDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
